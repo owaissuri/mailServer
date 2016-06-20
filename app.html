@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="jquery-1.12.1.min.js">
+</script>
+</head>
+<body style="background-color:#d3ffce">
+ <center><img src="logo.png"/>
+  <table width="600" cellpadding="5" cellspacing="2" border="1">
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>email</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>Khushboo</td>
+      <td>9876543210</td>
+	  <td>khush@gmail.com</td>
+	  <td><button>Send mail</button></td>
+    </tr>
+    <tr>
+      <td>Raj</td>
+      <td>8976543210</td>
+	  <td>raj@yahoo.com</td>
+	  <td><button>Send mail</button></td>
+    </tr>
+	<tr>
+      <td>Mohan</td>
+      <td>7890564321</td>
+	  <td>mohan@gmail.com</td>
+	  <td><button>Send mail</button></td>
+    </tr>
+	<tr>
+      <td>Sourabh</td>
+      <td>8790654321</td>
+	  <td>sourabh@gmail.com</td>
+	  <td><button>Send mail</button></td>
+    </tr>
+	<tr>
+      <td>Zeeshan</td>
+      <td>9087654312</td>
+	  <td>zeeshan@gmail.com</td>
+	  <td><button>Send mail</button></td>
+    </tr>
+</table></center>
+
+<script>
+
+$("button").click(function() {
+var siblings=$(this).parent().siblings();
+    $.ajax({
+        url: 'sendmail.php',
+        type: 'POST', // GET is default
+        data: {
+            yourData: $(siblings[2]).html()
+            // in PHP, use $_POST['yourData']
+        },
+        success: function(msg) {
+            alert('Data returned from PHP: ' + msg);
+        },
+        error: function(msg) {
+            alert('AJAX request failed!' + msg);
+        }
+    });
+});
+</script>
+</body>
+</html>
