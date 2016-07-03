@@ -51,10 +51,10 @@ $("button").click(function() {
 var siblings=$(this).parent().siblings();
     $.ajax({
         url: 'sendmail.php',
-        type: 'POST', // GET is default
+        type: 'POST', 
         data: {
             yourData: $(siblings[2]).html()
-            // in PHP, use $_POST['yourData']
+            
         },
         success: function(msg) {
             alert('Data returned from PHP: ' + msg);
